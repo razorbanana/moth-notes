@@ -1,0 +1,61 @@
+{
+  "name": "moth-notes",
+  "version": "0.1.0",
+  "description": "Local sticky notes desktop app with backup and export",
+  "main": "out/main/index.js",
+  "scripts": {
+    "compile": "tsc",
+    "start": "tsc && electron .",
+    "dev": "tsc && electron .",
+    "build": "tsc && electron-builder",
+    "build:win": "tsc && electron-builder --win",
+    "build:mac": "tsc && electron-builder --mac",
+    "build:linux": "tsc && electron-builder --linux",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "prepare": "husky"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "keywords": ["notes", "sticky", "electron", "desktop"],
+  "author": "Stanislav Stefiuk",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0",
+    "@types/node": "^20.0.0",
+    "electron": "^35.0.0",
+    "electron-builder": "^24.0.0",
+    "eslint": "^9.0.0",
+    "eslint-import-resolver-typescript": "^3.0.0",
+    "eslint-plugin-import-x": "^4.0.0",
+    "globals": "^15.0.0",
+    "husky": "^9.0.0",
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.0.0"
+  },
+  "build": {
+    "appId": "com.mothnotes.app",
+    "productName": "Moth Notes",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.icns"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
